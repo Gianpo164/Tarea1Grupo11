@@ -1,2 +1,4 @@
 # Tarea1Grupo11
-tarea 1 grupo 11
+Gianpiero Alejandro Massoglia Seguel
+Ignacio Andrés Pérez Vilches
+Matías Ignacio Figueroa Vásquez
