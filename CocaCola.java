@@ -4,7 +4,7 @@ public class CocaCola extends Producto{
     public CocaCola(int x){
         super(x);
     }
-    public String beber(){
+    public String consumir(){
         return "cocacola";
     }
 }
