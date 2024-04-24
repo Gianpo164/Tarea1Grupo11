@@ -4,7 +4,7 @@ public class Sprite extends Producto{
     public Sprite(int x){
         super(x);
     }
-    public String beber(){
+    public String consumir(){
         return "sprite";
     }
 
