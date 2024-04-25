@@ -68,7 +68,9 @@ public class Expendedor {
                 monVu.addObject(new Moneda100());
             }
         }
-        else throw new PagoInsuficienteException("El producto custa mas de lo que se entrego");
+        else {
+            throw new PagoInsuficienteException("El producto custa mas de lo que se entrego",m);
+        }
 
         return b;
     }

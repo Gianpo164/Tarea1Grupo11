@@ -7,13 +7,13 @@ public class Comprador {
 
     public Comprador(Moneda m, int cual, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException, ProductoIncorrectoException{
         expendedor = exp;
-        Producto bebida = exp.comprarProducto(m, cual);
+        Producto Producto = exp.comprarProducto(m, cual);
         for (Moneda i = expendedor.getVuelto(); i != null; i = expendedor.getVuelto()) {
             vuelto += i.getValor();
         }
-        if (bebida == null) {
+        if (Producto == null) {
             sabor = null;
-        } else sabor = bebida.beber();
+        } else sabor = Producto.consumir();
     }
 
     public int cuantoVuelto() {
