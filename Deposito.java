@@ -11,7 +11,7 @@ public class Deposito<T> {
         deposito.add(x);
     }
 
-    public Object getObject() {
+    public T getObject() {
         if (deposito.size() == 0) {
             return null;
         }
