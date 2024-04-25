@@ -32,7 +32,6 @@ public class Expendedor {
     public Producto comprarProducto(Moneda m, int x) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException, ProductoIncorrectoException {
         b = null;
         if (m == null) {
-            //System.out.println("null");
             throw new PagoIncorrectoException("Pago incorrecto");
         }
         switch (x){
