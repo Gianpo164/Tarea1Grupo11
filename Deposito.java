@@ -2,21 +2,21 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class Deposito {
-    private ArrayList al;
+public class Deposito<T> {
+    private ArrayList<T> deposito;
 
     public Deposito() {
-        al = new ArrayList();
+        deposito = new ArrayList<T>();
     }
 
-    public void addObject(Object x) {
-        al.add(x);
+    public void addObject(T x) {
+        deposito.add(x);
     }
 
-    public Object getObject() {
-        if (al.size() == 0) {
+    public T getObject() {
+        if (deposito.size() == 0) {
             return null;
         }
-        return al.remove(0);
+        return deposito.remove(0);
     }
 }
