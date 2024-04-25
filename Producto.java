@@ -1,9 +1,9 @@
 package org.example;
 
-public class Producto {
+public abstract class Producto {
     private int serie;
+    private int valor;
     public Producto(int x) { serie = x; }
-    public int getSerie() {
-        return serie;
-    }
+    public int getSerie() { return serie; }
+    public abstract String consumir();
 }
