@@ -59,7 +59,7 @@ public class Expendedor {
 
         if (b == null) {
             monVu.addObject(m);
-            throw new NoHayProductoException("No hay producto");
+            throw new NoHayProductoException("No hay producto", m);
         }
         if (m.getValor() >= precioProducto){
             for (int i = 0; m.getValor() > precioProducto + i; i += 100) {
@@ -67,7 +67,7 @@ public class Expendedor {
             }
         }
         else {
-            throw new PagoInsuficienteException("El producto cuesta mas de lo que se entrego",m);
+            throw new PagoInsuficienteException("El producto cuesta mas de lo que se entrego", m);
         }
 
         return b;

@@ -2,7 +2,13 @@ package org.example;
 
 public class NoHayProductoException extends Exception{
 
-    public NoHayProductoException(String errorMessage){
+    private Moneda moneda;
+
+    public NoHayProductoException(String errorMessage, Moneda m){
         super(errorMessage);
+        moneda = m;
+    }
+    public Moneda DevuelveMoneda(){
+        return moneda;
     }
 }
