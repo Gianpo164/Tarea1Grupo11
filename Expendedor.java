@@ -7,12 +7,10 @@ public class Expendedor {
     private Deposito<Producto> snickers;
     private Deposito<Producto> super8;
     private Deposito<Moneda> monVu;
-    private int precioBebida;
+    private int precioProducto;
     private Producto b;
-    public static final int COCA = 1;
-    public static final int SPRITE = 2;
 
-    public Expendedor(int numBebidas) {
+    public Expendedor(int numProductos) {
         coca = new Deposito<>();
         sprite = new Deposito<>();
         fanta = new Deposito<>();
@@ -20,7 +18,7 @@ public class Expendedor {
         super8 = new Deposito<>();
         monVu = new Deposito<>();
 
-        for (int i = 100; i < 100 + numBebidas; i++) {
+        for (int i = 100; i < 100 + numProductos; i++) {
             coca.addObject(new CocaCola(i));
             sprite.addObject(new Sprite(i+100));
             fanta.addObject(new Fanta(i+200));
@@ -37,23 +35,23 @@ public class Expendedor {
         switch (x){
             case 1:
                 b = coca.getObject();
-                precioBebida = EnumProductos.COCACOLA.getPrecio();
+                precioProducto = EnumProductos.COCACOLA.getPrecio();
                 break;
             case 2:
                 b = sprite.getObject();
-                precioBebida = EnumProductos.SPRITE.getPrecio();
+                precioProducto = EnumProductos.SPRITE.getPrecio();
                 break;
             case 3:
                 b = fanta.getObject();
-                precioBebida = EnumProductos.FANTA.getPrecio();
+                precioProducto = EnumProductos.FANTA.getPrecio();
                 break;
             case 4:
                 b = snickers.getObject();
-                precioBebida = EnumProductos.SNICKERS.getPrecio();
+                precioProducto = EnumProductos.SNICKERS.getPrecio();
                 break;
             case 5:
                 b = super8.getObject();
-                precioBebida = EnumProductos.SUPER8.getPrecio();
+                precioProducto = EnumProductos.SUPER8.getPrecio();
                 break;
             default:
                 throw new ProductoIncorrectoException("No existe el producto pedido");
@@ -61,14 +59,16 @@ public class Expendedor {
 
         if (b == null) {
             monVu.addObject(m);
-            throw new NoHayProductoException("No hay producto");
+            throw new NoHayProductoException("No hay producto", m);
         }
-        if (m.getValor() >= precioBebida){
-            for (int i = 0; m.getValor() > precioBebida + i; i += 100) {
+        if (m.getValor() >= precioProducto){
+            for (int i = 0; m.getValor() > precioProducto + i; i += 100) {
                 monVu.addObject(new Moneda100());
             }
         }
-        else throw new PagoInsuficienteException("El producto custa mas de lo que se entrego");
+        else {
+            throw new PagoInsuficienteException("El producto cuesta mas de lo que se entrego", m);
+        }
 
         return b;
     }
