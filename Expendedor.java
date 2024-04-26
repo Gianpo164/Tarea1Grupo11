@@ -9,8 +9,6 @@ public class Expendedor {
     private Deposito<Moneda> monVu;
     private int precioBebida;
     private Producto b;
-    public static final int COCA = 1;
-    public static final int SPRITE = 2;
 
     public Expendedor(int numBebidas) {
         coca = new Deposito<>();
@@ -69,7 +67,7 @@ public class Expendedor {
             }
         }
         else {
-            throw new PagoInsuficienteException("El producto custa mas de lo que se entrego",m);
+            throw new PagoInsuficienteException("El producto cuesta mas de lo que se entrego",m);
         }
 
         return b;
