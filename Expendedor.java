@@ -54,7 +54,7 @@ public class Expendedor {
                 precioProducto = EnumProductos.SUPER8.getPrecio();
                 break;
             default:
-                throw new ProductoIncorrectoException("No existe el producto pedido");
+                throw new ProductoIncorrectoException("No existe el producto pedido", m);
         }
 
         if (b == null) {
