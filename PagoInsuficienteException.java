@@ -7,8 +7,8 @@ public class PagoInsuficienteException extends Exception{
         super(errorMessage);
         moneda = m;
     }
-    public Moneda DevuelveMoneda(){
-        return moneda;
+    public String getMessage() {
+        return super.getMessage() + ", su moneda: " + moneda.getValor();
     }
 
 }
