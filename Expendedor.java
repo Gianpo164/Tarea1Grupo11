@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Representacion de una maquina expendedora
+ */
 public class Expendedor {
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
@@ -10,6 +13,10 @@ public class Expendedor {
     private int precioProducto;
     private Producto b;
 
+    /**
+     * Crear los depositos y agregarle productos
+     * @param numProductos cuantos productos habra de cada tipo
+     */
     public Expendedor(int numProductos) {
         coca = new Deposito<>();
         sprite = new Deposito<>();
@@ -27,6 +34,16 @@ public class Expendedor {
         }
     }
 
+    /**
+     * se asegura de que el producto y el vuelto sean el correcto
+     * @param m para corroborar que se ingreso el dinero suficiente para efectuar la compra
+     * @param x el tipo de producto que se quiere comprar
+     * @return el producto pedido
+     * @throws NoHayProductoException si no quedan productos del que se pide
+     * @throws PagoIncorrectoException si no se ingresa una moneda
+     * @throws PagoInsuficienteException si con la moneda ingresada no alcanza a comprar el producto
+     * @throws ProductoIncorrectoException si el producto que se pide no existe en la expendedora
+     */
     public Producto comprarProducto(Moneda m, int x) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException, ProductoIncorrectoException {
         b = null;
         if (m == null) {
@@ -73,6 +90,10 @@ public class Expendedor {
         return b;
     }
 
+    /**
+     * saca las monedas del deposito de monedas
+     * @return el vuelto que se genera en la compra
+     */
     public Moneda getVuelto() {
         return (Moneda) monVu.getObject();
     }
