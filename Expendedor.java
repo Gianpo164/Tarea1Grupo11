@@ -11,7 +11,7 @@ public class Expendedor {
     private Deposito<Producto> super8;
     private Deposito<Moneda> monVu;
     private int precioProducto;
-    private Producto b;
+    private Producto p;
 
     /**
      * Crear los depositos y agregarle productos
@@ -35,7 +35,7 @@ public class Expendedor {
     }
 
     /**
-     * se asegura de que el producto y el vuelto sean el correcto
+     * Se asegura de que el producto y el vuelto sean el correcto
      * @param m para corroborar que se ingreso el dinero suficiente para efectuar la compra
      * @param x el tipo de producto que se quiere comprar
      * @return el producto pedido
@@ -45,36 +45,36 @@ public class Expendedor {
      * @throws ProductoIncorrectoException si el producto que se pide no existe en la expendedora
      */
     public Producto comprarProducto(Moneda m, int x) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException, ProductoIncorrectoException {
-        b = null;
+        p = null;
         if (m == null) {
             throw new PagoIncorrectoException("Pago incorrecto");
         }
         switch (x){
             case 1:
-                b = coca.getObject();
+                p = coca.getObject();
                 precioProducto = EnumProductos.COCACOLA.getPrecio();
                 break;
             case 2:
-                b = sprite.getObject();
+                p = sprite.getObject();
                 precioProducto = EnumProductos.SPRITE.getPrecio();
                 break;
             case 3:
-                b = fanta.getObject();
+                p = fanta.getObject();
                 precioProducto = EnumProductos.FANTA.getPrecio();
                 break;
             case 4:
-                b = snickers.getObject();
+                p = snickers.getObject();
                 precioProducto = EnumProductos.SNICKERS.getPrecio();
                 break;
             case 5:
-                b = super8.getObject();
+                p = super8.getObject();
                 precioProducto = EnumProductos.SUPER8.getPrecio();
                 break;
             default:
                 throw new ProductoIncorrectoException("No existe el producto pedido", m);
         }
 
-        if (b == null) {
+        if (p == null) {
             monVu.addObject(m);
             throw new NoHayProductoException("No hay producto", m);
         }
@@ -87,14 +87,14 @@ public class Expendedor {
             throw new PagoInsuficienteException("El producto cuesta mas de lo que se entrego", m);
         }
 
-        return b;
+        return p;
     }
 
     /**
-     * saca las monedas del deposito de monedas
+     * Saca las monedas del deposito de monedas
      * @return el vuelto que se genera en la compra
      */
     public Moneda getVuelto() {
-        return (Moneda) monVu.getObject();
+        return monVu.getObject();
     }
 }

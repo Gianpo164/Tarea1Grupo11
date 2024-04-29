@@ -5,7 +5,7 @@ package org.example;
  */
 public class Comprador {
     private Expendedor expendedor;
-    private String sabor;
+    private String nproducto;
     private int vuelto = 0;
 
     /**
@@ -25,12 +25,11 @@ public class Comprador {
             vuelto += i.getValor();
         }
         if (Producto == null) {
-            sabor = null;
-        } else sabor = Producto.consumir();
+            nproducto = null;
+        } else nproducto = Producto.consumir();
     }
-
     /**
-     * retorna el vuelto
+     * Retorna el vuelto
      * @return La suma del valor de todas las monedas que el comprador saco del Expendedor despues de hacer una compra exitosa
      */
     public int cuantoVuelto() {
@@ -41,7 +40,7 @@ public class Comprador {
      * Retorna el nombre del producto que adquirio
      * @return el nombre del producto que adquirio
      */
-    public String queBebiste() {
-        return sabor;
+    public String queConsumiste() {
+        return nproducto;
     }
 }
