@@ -10,7 +10,7 @@ public abstract class Moneda implements Comparable<Moneda> {
     public Moneda() {}
 
     /**
-     * retorna la moneda
+     * Retorna la moneda
      * @return la moneda
      */
     public Moneda getSerie() {

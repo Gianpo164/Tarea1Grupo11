@@ -35,7 +35,7 @@ public class Expendedor {
     }
 
     /**
-     * se asegura de que el producto y el vuelto sean el correcto
+     * Se asegura de que el producto y el vuelto sean el correcto
      * @param m para corroborar que se ingreso el dinero suficiente para efectuar la compra
      * @param x el tipo de producto que se quiere comprar
      * @return el producto pedido
@@ -91,7 +91,7 @@ public class Expendedor {
     }
 
     /**
-     * saca las monedas del deposito de monedas
+     * Saca las monedas del deposito de monedas
      * @return el vuelto que se genera en la compra
      */
     public Moneda getVuelto() {
